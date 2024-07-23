@@ -1,5 +1,5 @@
 apiUrl = "";
-userRole = "admin"; // Change this to 'agent', 'trader', or 'admin' as needed
+userRole = "agent"; // Change this to 'agent', 'trader', or 'admin' as needed
 
 const loadHTML = async (url, containerId) => {
   try {

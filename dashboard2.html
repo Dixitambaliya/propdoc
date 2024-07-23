@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="css/main2.css">
+  <!-- Vendor CSS Files -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/dashbaord.css">
+  <!-- Vendor JS Files -->
+  <script src="./script/script.js"></script>
+  <style>
+    body {
+      background-color: #F7F9FF;
+    }
+
+    
+    .pagetitle{
+      margin-left: unset;
+    }
+   
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeAll();
+    });
+  </script>
+</head>
+
+<body>
+  <main id="main-content" class="main-content">
+    <div id="header-container"></div>
+    <div id="sidebar-container"></div>
+
+    <!-- ----
+    
+    admin-only-content
+    
+    --- --->
+    <div class="admin-only admin-content" id="admin">
+      <div class="pagetitle">
+        <h1>Dashboard</h1>
+      </div><!-- End Page Title -->
+
+      <!-- ongoing jobs -->
+      <div class="dashboard">
+        <div class="piechart-container">
+          <div class="piechart-title">Jobs</div>
+          <div class="chart-label">
+            <div class="piechart-wrapper">
+              <div class="piechart" id="piechart1"></div>
+            </div>
+            <div class="labels" id="labels1"></div>
+          </div>
+        </div>
+
+        <div class="piechart-container">
+          <div class="piechart-title">Jobs</div>
+          <div class="chart-label">
+            <div class="piechart-wrapper">
+              <div class="piechart" id="piechart2"></div>
+            </div>
+            <div class="labels" id="labels2"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="section-title">
+        <h1>Ongoing Jobs</h1>
+      </div>
+      <div class="admin-property-card">
+        <div class="admin-property-card-header" onclick="toggleAccordion(this)">
+          <div class="property-name">
+            <img src="./images/arrow_down.svg" alt="Arrow Icon" class="arrow-icon-accordian-2">
+            admin ipsum dolor sit amet consectetur. snf// Address
+          </div>
+          <div class="service-status">
+            <div class="service-name-job">Service Name : Cleaning</div>
+            <div class="status-completed">Status : Scheduled</div>
+          </div>
+        </div>
+        <div class="admin-property-card-body">
+          <div class="admin-agent-trader-middle">
+            <div class="admin-agent-trader">
+              <button class="admin-agent-button">Agent: John Doe</button>
+              <button class="admin-trader-button">Trader: Smith Villian</button>
+            </div>
+            <div class="admin-middle-right">
+              <div class="footer-date">
+                <img class="footer-icon" src="./images/date_icon.svg" alt="Date Icon">
+                <span>20 July 2024</span>
+              </div>
+              <div class="footer-time">
+                <img class="footer-icon" src="./images/time_icon.svg" alt="Time Icon">
+                <span>10:24 AM to 01:00 PM</span>
+              </div>
+              <div class="footer-currency">
+                <img class="footer-icon" src="./images/payment_icon.svg" alt="Currency Icon">
+                <span>$500.23</span>
+              </div>
+            </div>
+          </div>
+          <section class="admin-footer-2">
+            <div class="admin-footer-left-2">
+              <img class="footer-icon" src="./images/address_icon.svg" alt="Chat Icon">
+              <span class="address-text">
+                Lorem ipsum dolor sit amet consectetur. Semper ac bibendum id ornare facilisis dis eu cras urna. Tellus
+                lorem ut dignissim mus faucibus dui tortor gravida.
+              </span>
+            </div>
+            <div class="footer-schedule">
+              <a href="./schedule_appointment.html" class="schedule-button"><img src="images/scheduled_icon.svg" alt="">Schedule Appointment </a>
+            </div>
+          </section>
+        </div>
+
+      </div>
+      <div class="admin-property-card">
+        <div class="admin-property-card-header" onclick="toggleAccordion(this)">
+          <div class="property-name">
+            <img src="./images/arrow_down.svg" alt="Arrow Icon" class="arrow-icon-accordian-2">
+            admin ipsum dolor sit amet consectetur. snf// Address
+          </div>
+          <div class="service-status">
+            <div class="service-name-job">Service Name : Cleaning</div>
+            <div class="status-completed">Status : Scheduled</div>
+          </div>
+        </div>
+        <div class="admin-property-card-body">
+          <div class="admin-agent-trader-middle">
+            <div class="admin-agent-trader">
+              <button class="admin-agent-button">Agent: John Doe</button>
+              <button class="admin-trader-button">Trader: Smith Villian</button>
+            </div>
+            <div class="admin-middle-right">
+              <div class="footer-date">
+                <img class="footer-icon" src="./images/date_icon.svg" alt="Date Icon">
+                <span>20 July 2024</span>
+              </div>
+              <div class="footer-time">
+                <img class="footer-icon" src="./images/time_icon.svg" alt="Time Icon">
+                <span>10:24 AM to 01:00 PM</span>
+              </div>
+              <div class="footer-currency">
+                <img class="footer-icon" src="./images/payment_icon.svg" alt="Currency Icon">
+                <span>$500.23</span>
+              </div>
+            </div>
+          </div>
+          <section class="admin-footer-2">
+            <div class="admin-footer-left-2">
+              <img class="footer-icon" src="./images/address_icon.svg" alt="Chat Icon">
+              <span class="address-text">
+                Lorem ipsum dolor sit amet consectetur. Semper ac bibendum id ornare facilisis dis eu cras urna. Tellus
+                lorem ut dignissim mus faucibus dui tortor gravida.
+              </span>
+            </div>
+            <div class="footer-schedule">
+              <a href="./schedule_appointment.html" class="schedule-button"><img src="images/scheduled_icon.svg" alt="">Schedule Appointment </a>
+            </div>
+          </section>
+        </div>
+
+      </div>
+      <div class="admin-property-card">
+        <div class="admin-property-card-header" onclick="toggleAccordion(this)">
+          <div class="property-name">
+            <img src="./images/arrow_down.svg" alt="Arrow Icon" class="arrow-icon-accordian-2">
+            admin ipsum dolor sit amet consectetur. snf// Address
+          </div>
+          <div class="service-status">
+            <div class="service-name-job">Service Name : Cleaning</div>
+            <div class="status-pending">Status : Pending Quote Approval</div>
+          </div>
+        </div>
+        <div class="admin-property-card-body">
+          <div class="admin-agent-trader-middle">
+            <div class="admin-agent-trader">
+              <button class="admin-agent-button">Agent: John Doe</button>
+              <button class="admin-trader-button">Trader: Smith Villian</button>
+            </div>
+            <div class="admin-middle-right">
+              <div class="footer-date">
+                <img class="footer-icon" src="./images/date_icon.svg" alt="Date Icon">
+                <span>20 July 2024</span>
+              </div>
+              <div class="footer-time">
+                <img class="footer-icon" src="./images/time_icon.svg" alt="Time Icon">
+                <span>10:24 AM to 01:00 PM</span>
+              </div>
+              <div class="footer-currency">
+                <img class="footer-icon" src="./images/payment_icon.svg" alt="Currency Icon">
+                <span>$500.23</span>
+              </div>
+            </div>
+          </div>
+          <section class="admin-footer-2">
+            <div class="admin-footer-left-2">
+              <img class="footer-icon" src="./images/address_icon.svg" alt="Chat Icon">
+              <span class="address-text">
+                Lorem ipsum dolor sit amet consectetur. Semper ac bibendum id ornare facilisis dis eu cras urna. Tellus
+                lorem ut dignissim mus faucibus dui tortor gravida.
+              </span>
+            </div>
+            <div class="footer-schedule">
+              <a href="./schedule_appointment.html" class="schedule-button"><img src="images/scheduled_icon.svg" alt="">Schedule Appointment </a>
+            </div>
+          </section>
+        </div>
+
+      </div>
+
+      <!-- properteis needing attention  -->
+      <div class="section-title">
+        <h1>Properties Needing Attention</h1>
+      </div>
+
+
+      <div class="admin-property-card">
+        <div class="admin-property-card-header" onclick="toggleAccordion(this)">
+          <div class="property-name">
+            <img src="./images/arrow_down.svg" alt="Arrow Icon" class="arrow-icon-accordian-2">
+            admin ipsum dolor sit amet consectetur. snf// Address
+          </div>
+          <div class="service-status">
+            <div class="status-overdue">Status : Overdue</div>
+          </div>
+        </div>
+
+        <div class="admin-property-card-body needing-attention">
+          <div class="collapse-content">
+            <div class="left-buttons-dashboard">
+              <button class="info-btn"><img src="./images/floors_icon.svg" alt="" class="info-btn-icon"> Floors:
+                10</button>
+              <button class="info-btn"><img src="./images/rooms_icon.svg" alt="" class="info-btn-icon"> Rooms:
+                10</button>
+              <button class="info-btn"><img src="./images/living_icon.svg" alt="" class="info-btn-icon"></i> Living:
+                10</button>
+              <button class="info-btn"><img src="./images/washroom_icon.svg" alt="" class="info-btn-icon"> Washroom:
+                10</button>
+            </div>
+            <div class="right-info">
+              <div class="info-div">Carpet Cloth: No</div>
+              <div class="info-div">Swimming Pool: Yes</div>
+              <div class="info-div">Garden: Yes</div>
+              <div class="info-div">Status: No</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="admin-property-card">
+        <div class="admin-property-card-header" onclick="toggleAccordion(this)">
+          <div class="property-name">
+            <img src="./images/arrow_down.svg" alt="Arrow Icon" class="arrow-icon-accordian-2">
+            admin ipsum dolor sit amet consectetur. snf// Address
+          </div>
+          <div class="service-status">
+            <div class="status-overdue">Status : Overdue</div>
+          </div>
+        </div>
+
+        <div class="admin-property-card-body needing-attention">
+          <div class="collapse-content">
+            <div class="left-buttons-dashboard">
+              <button class="info-btn"><i class="fa fa-building"></i> Floors: 10</button>
+              <button class="info-btn"><i class="fa fa-bed"></i> Rooms: 10</button>
+              <button class="info-btn"><i class="fa fa-couch"></i> Living: 10</button>
+              <button class="info-btn"><i class="fa fa-bath"></i> Washroom: 10</button>
+            </div>
+            <div class="right-info">
+              <div class="info-div">Carpet Cloth: No</div>
+              <div class="info-div">Swimming Pool: Yes</div>
+              <div class="info-div">Garden: Yes</div>
+              <div class="info-div">Status: No</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+
+  </main>
+
+  <script>
+    function toggleAccordion(element) {
+      const body = element.nextElementSibling;
+      const arrowIcon = element.querySelector('.arrow-icon-accordian-2');
+
+      if (body.classList.contains('active')) {
+        body.classList.remove('active');
+        body.classList.add('inactive');
+        arrowIcon.classList.remove('rotated');
+      } else {
+        body.classList.remove('inactive');
+        body.classList.add('active');
+        arrowIcon.classList.add('rotated');
+      }
+    }
+  </script>
+  <script src="script/myproperties.js"></script>
+
+  <script src="script/pichart.js"></script>
+</body>
+
+</html>

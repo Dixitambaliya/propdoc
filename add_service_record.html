@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>services Record</title>
+    <!-- Vendor CSS Files -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="css/main2.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Vendor JS Files -->
+    <script src="./script/script.js"></script>
+    <style>
+        body {
+            background: #f7f9ff !important;
+        }
+
+        .form-control {
+            color: initial;
+            /* Initial color */
+        }
+
+        ::placeholder {
+            font-weight: 500;
+        }
+
+        .container {
+            border: 3px solid #9ea4ac36;
+            border-radius: 15px;
+            width: 98%;
+            background-color: #fff;
+        }
+
+        .row {
+            max-width: 40%;
+        }
+
+        .comment-input {
+            display: flex;
+            align-items: flex-start;
+            /* Align items to the start (top) */
+            text-align: left;
+            /* Align text to the left */
+            padding: 5% 2% 24% 1%;
+        }
+
+        .comment-input::placeholder {
+            text-align: left;
+
+            display: block;
+            /* Use block to ensure alignment works properly */
+        }
+
+        .pagetitle {
+            margin-bottom: 20px;
+        }
+
+        .select-service {
+            font-family: 'nunito';
+            -webkit-appearance: none;
+            appearance: none;
+            background: url(images/select_arrow.svg) no-repeat right;
+            background-position: calc(100% - 1rem) center;
+            padding-right: 2rem;
+            /* Adjust this value as needed */
+            font-weight: 600 !important;
+            color: #676767;
+        }
+
+        input#property-name {
+            background-color: #dddddd96;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .compliance-box {
+            margin-left: 1%;
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            width: 38%;
+        }
+
+        .checkbox-label {
+            width: auto;
+            /* Make each label take the necessary width */
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            /* Adjust the size as needed */
+            height: 20px;
+            /* Adjust the size as needed */
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            /* Add border radius */
+            position: relative;
+            cursor: pointer;
+        }
+
+        .checkbox-label input[type="checkbox"]:checked {
+            background-color: #4154F1;
+        }
+
+        .checkbox-label input[type="checkbox"]:checked:before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 6px;
+            width: 4px;
+            /* Adjust the size of the check tick */
+            height: 8px;
+            /* Adjust the size of the check tick */
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        #compliacne-label {
+            margin-left: 1%;
+        }
+
+        .form-btn-save {
+            padding: 10px 36px;
+            color: white !important;
+            background-color: #4154F1 !important;
+            box-shadow: 3px 4px 6px rgb(0 0 0 / 13%);
+
+        }
+
+        .responsive-create {
+            display: none;
+            visibility: hidden;
+        }
+
+        .form-label {
+            font-weight: 600;
+        }
+
+        @media (max-width: 992px) {
+            .create-button {
+                visibility: hidden;
+            }
+
+            .row {
+                max-width: 100%;
+            }
+
+            .compliance-box {
+                max-width: 93%;
+                padding-bottom: 1rem;
+                width: 100%;
+            }
+
+            .responsive-create {
+                visibility: visible;
+                padding: 1%;
+            }
+
+            .form-btn-create {
+                color: white !important;
+                background-color: #4154F1 !important;
+                box-shadow: 3px 4px 6px rgb(0 0 0 / 13%);
+
+                margin-top: 3%;
+                width: 16%;
+                padding: 15px 0px;
+            }
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeAll();
+        });
+    </script>
+</head>
+
+<body>
+    <main id="main-content" class="main-content">
+        <div class="pagetitle">
+            <h1>Add service record</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="myproperties.html">My properties</a></li>
+                    <span class="breadcrumb-devider">/</span>
+                    <li class="breadcrumb-item active">add service records</li>
+                </ol>
+            </nav>
+
+        </div><!-- End Page Title -->
+
+        <div class="container custom-container">
+            <form>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="firstName " class="form-label ">Property Name</label>
+                        <input type="text" class="form-control border-rad input-height" id="property-name"
+                            placeholder="Demo test">
+                    </div>
+
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="firstName" class="form-label">Service Type</label>
+                        <select name="select" id="serviceSelect"
+                            class="form-control border-rad input-height select-service">
+                            <option value="" selected disabled hidden>Select service type</option>
+                            <option value="cleaning">cleaning</option>
+                            <option value="compliance">compliance</option>
+                            <option value="other">other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="firstName" class="form-label hidden" id="compliacne-label">Compliance</label>
+
+                    <div id="checkboxes" class="hidden">
+
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="compliance" value="gas"> Gas
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="compliance" value="smock"> Smock
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="compliance" value="electrical"> Electrical
+                        </label>
+                    </div>
+                    <div class="row mb-3 hidden" id="text-box">
+                        <div class="col">
+                            <label for="firstName" class="form-label">Textbox</label>
+                            <input type="text" class="form-control border-rad input-height" id="firstName"
+                                placeholder="Enter your text">
+                        </div>
+                    </div>
+                </div>
+
+
+                <script>
+                    document.getElementById('serviceSelect').addEventListener('change', function () {
+                        var checkboxes = document.getElementById('checkboxes');
+                        var textbox = document.getElementById('text-box');
+                        var compLabel = document.getElementById('compliacne-label')
+                        if (this.value == 'cleaning') {
+                            checkboxes.classList.add('hidden');
+                            checkboxes.classList.remove('compliance-box');
+                            textbox.classList.add('hidden');
+                            compLabel.classList.add('hidden')
+                        } else if (this.value == 'compliance') {
+                            compLabel.classList.remove('hidden')
+                            checkboxes.classList.remove('hidden');
+                            checkboxes.classList.add('compliance-box');
+                            textbox.classList.add('hidden');
+                        } else if (this.value == 'other') {
+                            checkboxes.classList.add('hidden');
+                            checkboxes.classList.remove('compliance-box');
+                            textbox.classList.remove('hidden');
+                            compLabel.classList.add('hidden')
+                        } else {
+                            checkboxes.classList.add('hidden');
+                            textbox.classList.add('hidden');
+                        }
+                    });
+                </script>
+
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="firstName " class="form-label ">Comments</label>
+                        <input type="text" class="form-control border-rad input-height comment-input" id="firstName"
+                            placeholder="Enter Your Comments">
+                    </div>
+
+                </div>
+                <div class="d-flex justify-content-end create-button">
+                    <button type="submit" class="btn btn-primary form-btn-save">Create</button>
+                </div>
+            </form>
+
+        </div>
+        <div class="d-flex justify-content-end responsive-create">
+            <button type="submit" class="btn btn-primary  form-btn-create">Create</button>
+        </div>
+    </main>
+    <div id="header-container"></div>
+    <div id="sidebar-container"></div>
+
+
+
+
+
+</body>
+
+</html>

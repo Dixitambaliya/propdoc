@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Properties</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="stylesheet" href="css/main2.css">
+  <link rel="stylesheet" href="css/profile.css">
+  <script src="script/script.js"></script>
+  <!-- Vendor CSS Files -->
+  <style>
+    .btn {
+      border-radius: 0.375rem;
+      font-weight: 500 !important;
+    }
+
+    .btn-secondary:hover {
+      background-color: #83838359 !important;
+      color: white !important;
+    }
+
+
+    html,
+    body {
+      background-color: #f4f4f9;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      flex-grow: 1;
+      height: calc(100% - 5rem);
+      width: 100%;
+      
+      box-sizing: border-box;
+    }
+
+    .pagetitle {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .custom-toggle-item {
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+
+
+    .button-container {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .add-properties-button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 50px;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    .add-properties-button:hover {
+      background-color: var(--primary);
+    }
+
+    @media (max-width: 992px) {
+      .image-preview {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+      }
+
+      .image-preview img {
+        width: 100%;
+      }
+
+      .upload-section {
+        display: block;
+      }
+
+      .upload-box {
+        height: 50%;
+      }
+    }
+
+    @media (max-width: 490px) {
+      .upload-box {
+        height: 40%;
+      }
+
+      .image-preview {
+        display: grid;
+        grid-template-columns: auto auto;
+      }
+    }
+
+    .upload-section {
+      grid-template-rows: 41% 15% 39%;
+    }
+
+    .upload-text {
+      margin-top: unset;
+      padding: 10px;
+    }
+
+    .upload-box p {
+      font-size: 0.8rem;
+    }
+
+    .form-label {
+      font-size: 0.8rem;
+    }
+
+    .form-control::placeholder {
+      font-size: 0.75rem;
+    }
+
+    .form-control {
+      /* padding: 0.70rem 0.5625rem; */
+    }
+
+    .input-height {
+      height: 2.25rem!important;
+    }
+
+    .toggle-group {
+      display: flex;
+      /* justify-content: center; */
+      align-items: center;
+      /* flex-wrap: wrap; */
+      gap: 10px;
+    }
+
+    .toggle-item {
+      display: flex;
+      align-items: center;
+      /* gap: 10px; */
+      /* flex-wrap: nowrap; */
+    }
+
+    input.toggle {
+      display: none;
+    }
+
+    .switch {
+      width: 54px;
+      height: 25px;
+    }
+
+    .slider:before {
+      bottom: 0.25em;
+    }
+
+    .form-divider {
+      border: 1px dashed #4154F1;
+      margin: 2% 0 2% 0;
+    }
+
+    .mb-3 {
+      margin-bottom: 0.5rem !important;
+    }
+
+    .custom-switch {
+      width: 3.2em;
+      height: 1.5em;
+    }
+
+    .custom-slider:before {
+      height: 1.1em;
+      width: 1.1em;
+    }
+
+    input:checked+.custom-slider:before {
+      transform: translateX(1.8em);
+      left: 0.1em;
+    }
+
+    .custom-switch-text {
+      font-weight: 650;
+    }
+
+    .upload-text {
+      border-bottom: 0.125rem dashed #4154f1b3;
+    }
+
+    .upload-center-text {
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 992px) {
+      .toggle-group {
+        /* justify-content: center; */
+        flex-wrap: wrap;
+      }
+
+      .switch {
+        width: 37px;
+        height: 17px;
+      }
+
+      .slider:before {
+        height: 0.8rem;
+        top: 0.1rem;
+        left: 0;
+        width: 0.8rem;
+      }
+
+      input:checked+.slider:before {
+        transform: translateX(1.4em);
+      }
+
+      .switch-text {
+        font-size: 0.8rem;
+        font-weight: 700;
+      }
+    }
+
+    @media (max-width: 490px) {
+      .upload-section {
+        min-height: 50%;
+      }
+
+      .upload-text {
+        margin-bottom: unset;
+      }
+
+      .image-preview {
+        justify-content: center;
+        grid-template-columns: 45% 45%;
+        margin-top: 0.5rem;
+      }
+
+      .switch-text {
+        font-size: 0.7rem;
+      }
+
+      .toggle-item {
+        gap: 0 10px;
+        display: grid;
+        grid-template-columns: 25% 0;
+        max-width: 100%;
+        justify-content: unset;
+        transform: unset;
+      }
+
+      .switch {
+        width: 34px;
+        height: 16px;
+      }
+
+      .slider:before {
+        height: 0.8rem;
+        top: 1px;
+        left: -3px;
+        bottom: 0;
+        width: 0.8rem;
+      }
+
+      .toggle-group {
+        display: grid;
+        grid-template-columns: 48% 33%;
+        justify-content: space-around;
+        grid-auto-rows: 38px;
+        grid-auto-flow: dense;
+      }
+
+      ol.breadcrumb {
+        font-size: 0.7rem;
+      }
+
+   
+      .breadcrumb-devider {
+        margin: 0 3px;
+      }
+
+      .custom-switch {
+        width: 2.5em;
+        height: 1.3em;
+      }
+
+      .custom-slider:before {
+        height: 1em;
+        width: 1em;
+      }
+
+      .heading-button {
+        align-self: flex-end;
+        transform: scale(0.8);
+      }
+
+      input:checked+.custom-slider:before {
+        transform: translateX(0.8em);
+        left: 0.5em;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .upload-section {
+        min-height: 45%;
+      }
+    }
+    @media (max-width: 375px) {
+      .upload-section {
+        min-height: 44%;
+      }
+    }
+    @media (max-width: 350px) {
+      .upload-section {
+        min-height: 45%;
+      }
+    }
+    @media (max-width: 300px) {
+      .upload-section {
+        min-height: 40%;
+      }
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeAll();
+    });
+  </script>
+</head>
+
+<body>
+
+  <main id="main-content" class="main-content">
+
+    <div class="pagetitle">
+      <div class="title-nav">
+        <h1>My Properties</h1>
+        <nav>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="myproperties.html">My properties / </a></li>
+            
+            <li class="breadcrumb-item active">Add Properties</li>
+          </ol>
+        </nav>
+      </div>
+
+      <!-- status-button -->
+      <div class="custom-toggle-item heading-button">
+        <label class="custom-switch">
+          <input type="checkbox" id="customSwitch">
+          <span class="custom-slider"></span>
+        </label>
+        <span class="custom-switch-text" id="customSwitchText">Status</span>
+      </div>
+    </div>
+
+    <div id="header-container"></div>
+    <div id="sidebar-container"></div>
+
+    <div class="container container-responsive">
+      <div class="upload-section">
+        <div class="upload-box" id="uploadBox">
+          <img src="./images/upload_img.svg" alt="Upload Icon" style="width: 50px; height: 50px;">
+          <p><span>Click to upload </span><span>or</span><span> drag and drop</span>
+            <input type="file" id="fileInput" accept="image/*">
+          </p>
+        </div>
+        <div class="upload-text">
+          <p class="upload-center-text">Max file size: 15 MB</p>
+        </div>
+
+        <div class="image-preview" id="imagePreview">
+          <img src="./images/preview_img.png" alt="Preview 1" id="preview1">
+          <img src="./images/preview_img.png" alt="Preview 2" id="preview2">
+          <img src="./images/preview_img.png" alt="Preview 3" id="preview3">
+          <img src="./images/preview_img.png" alt="Preview 4" id="preview4">
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="mb-3">
+          <label for="properties name" class="form-label">Properties name</label>
+          <input type="text" class="form-control input-height" id="properties name"
+            placeholder="Enter your properties name">
+        </div>
+        <div class="mb-3">
+          <label for="address" class="form-label">Address</label>
+          <input type="text" class="form-control input-height" id="address" placeholder="Enter your address">
+        </div>
+
+        <div class="row mb-3">
+          <div class="col">
+            <label for="city" class="form-label">City</label>
+            <input type="text" class="form-control input-height" id="city" placeholder="Enter your city">
+          </div>
+          <div class="col">
+            <label for="state" class="form-label">State</label>
+            <input type="text" class="form-control input-height" id="state" placeholder="Enter your state">
+          </div>
+          <div class="col">
+            <label for="country" class="form-label">Country</label>
+            <input type="text" class="form-control input-height" id="country" placeholder="Enter your country">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <label for="firstName" class="form-label">No. Of Floors</label>
+            <input type="text" class="form-control border-rad input-height" id="firstName"
+              placeholder="Enter your floors">
+          </div>
+          <div class="col">
+            <label for="rooms" class="form-label">No. Of Rooms</label>
+            <input type="text" class="form-control border-rad input-height" id="rooms" placeholder="Enter your rooms">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <label for="firstName" class="form-label">No. Of Living</label>
+            <input type="text" class="form-control border-rad input-height" id="living" placeholder="Enter your living">
+          </div>
+          <div class="col">
+            <label for="washroom" class="form-label">No. Of Washroom</label>
+            <input type="text" class="form-control border-rad input-height" id="washroom"
+              placeholder="Enter your washroom">
+          </div>
+        </div>
+
+        <hr class="form-divider">
+
+        <div class="toggle-group">
+          <div class="toggle-item">
+            <label class="switch">
+              <input type="checkbox" class="toggle">
+              <span class="slider"></span>
+            </label>
+            <span class="switch-text">Carpet Cloth</span>
+          </div>
+          <div class="toggle-item">
+            <label class="switch">
+              <input type="checkbox" class="toggle">
+              <span class="slider"></span>
+            </label>
+            <span class="switch-text">Swimming Pool</span>
+          </div>
+          <div class="toggle-item">
+            <label class="switch">
+              <input type="checkbox" class="toggle">
+              <span class="slider"></span>
+            </label>
+            <span class="switch-text">Front Yard</span>
+          </div>
+          <div class="toggle-item">
+            <label class="switch">
+              <input type="checkbox" class="toggle">
+              <span class="slider"></span>
+            </label>
+            <span class="switch-text">Back Yard</span>
+          </div>
+        </div>
+
+
+        <div class="button-container">
+          <a class="add-properties-button" href="add_properties.html">Save</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById('uploadBox').addEventListener('click', function () {
+      document.getElementById('fileInput').click();
+    });
+
+    document.getElementById('fileInput').addEventListener('change', function (event) {
+      handleFiles(event.target.files);
+    });
+
+    document.getElementById('uploadBox').addEventListener('dragover', function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      this.style.borderColor = '#007bff';
+    });
+
+    document.getElementById('uploadBox').addEventListener('dragleave', function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      this.style.borderColor = '#ccc';
+    });
+
+    document.getElementById('uploadBox').addEventListener('drop', function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      this.style.borderColor = '#ccc';
+      handleFiles(event.dataTransfer.files);
+    });
+
+    function handleFiles(files) {
+      const previewElements = document.querySelectorAll('.image-preview img');
+      for (const file of files) {
+        if (file.size <= 15 * 1024 * 1024) {
+          const reader = new FileReader();
+          reader.onload = function (event) {
+            // Shift images to the next preview
+            for (let i = previewElements.length - 1; i > 0; i--) {
+              previewElements[i].src = previewElements[i - 1].src;
+            }
+            // Set the latest uploaded image to the first preview
+            previewElements[0].src = event.target.result;
+          };
+          reader.readAsDataURL(file);
+        } else {
+          alert('File is too large: ' + file.name);
+        }
+      }
+    }
+  </script>
+
+  </script>
+
+</body>
+
+</html>
